@@ -1,0 +1,65 @@
+export const settings = {
+  dashboard: {
+    breadcrumb: "Tableau de bord",
+  },
+  settings: {
+    title: "Paramètres",
+    description: "Gérez votre profil et les paramètres de votre compte",
+
+    profileTitle: "Profil",
+    profileDescription: "Mettez à jour votre nom et votre e-mail",
+
+    passwordTitle: "Mot de passe",
+    passwordDescription: "Mettez à jour le mot de passe de votre compte",
+    appearanceTitle: "Apparence",
+    appearanceDescription:
+      "Choisissez l'apparence d'Axiom. Paramètres stockés localement.",
+    themes: {
+      light: "Clair",
+      lightDescription: "Interface propre et lumineuse",
+      dark: "Sombre",
+      darkDescription: "Reposant pour les yeux la nuit",
+      system: "Système",
+      systemDescription: "Suit les paramètres de votre appareil",
+    },
+    name: "Nom",
+    yourName: "Votre nom",
+    currentPassword: "Mot de passe actuel",
+    newPassword: "Nouveau mot de passe",
+    confirmPassword: "Confirmer le mot de passe",
+
+    enterCurrentPassword: "Entrez le mot de passe actuel",
+    enterNewPassword: "Entrez le nouveau mot de passe",
+    confirmNewPassword: "Confirmez le nouveau mot de passe",
+
+    saveChanges: "Enregistrer les modifications",
+
+    profileUpdated: "Le profil a été mis à jour avec succès.",
+    profileUpdatedDescription: "Votre profil a été mis à jour avec succès.",
+    passwordUpdated: "Le mot de passe a été mis à jour avec succès.",
+    passwordUpdatedDescription:
+      "Votre mot de passe a été mis à jour avec succès.",
+
+    errors: {
+      usernameRequired: "Le nom complet est requis.",
+      usernameMin: "Le nom complet doit contenir au moins 3 caractères.",
+      emailRequired: "L'e-mail est requis.",
+      emailInvalid: "Saisissez une adresse e-mail valide.",
+      emailTaken: "Cet e-mail est deja utilise.",
+      currentPasswordRequired: "Le mot de passe actuel est requis.",
+      currentPasswordInvalid: "Le mot de passe actuel est incorrect.",
+      newPasswordRequired: "Le nouveau mot de passe est requis.",
+      newPasswordMin:
+        "Le nouveau mot de passe doit contenir au moins 6 caractères.",
+      confirmPasswordRequired: "Veuillez confirmer votre nouveau mot de passe.",
+      passwordsMismatch: "Les mots de passe ne correspondent pas.",
+    },
+  },
+  notFound: {
+    description: "La page que vous recherchez n'existe pas.",
+    goHome: "Accueil",
+    goBack: "Retour",
+    goDashboard: "Tableau de bord",
+    goLogin: "Se connecter",
+  },
+} as const
