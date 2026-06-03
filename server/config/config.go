@@ -67,7 +67,7 @@ func Load() {
 			Pass: getEnv("DB_PASS", ""),
 			Host: getEnv("DB_HOST", "localhost"),
 			Port: getEnv("DB_PORT", "3306"),
-			Name: getEnv("DB_NAME", "axiom_db"),
+			Name: getEnv("DB_NAME", "kanban_db"),
 		},
 		Server: ServerConfig{
 			Port:           getEnv("PORT", "8080"),
@@ -86,7 +86,7 @@ func Load() {
 			Password:    getEnv("MAIL_PASSWORD", ""),
 			Encryption:  getEnv("MAIL_ENCRYPTION", "tls"),
 			FromAddress: getEnv("MAIL_FROM_ADDRESS", "mohamedbaya.dev@gmail.com"),
-			FromName:    getEnv("MAIL_FROM_NAME", "Axiom"),
+			FromName:    getEnv("MAIL_FROM_NAME", "Kanban"),
 		},
 		Cookie: CookieConfig{
 			Secure:   getEnvAsBool("COOKIE_SECURE", false),

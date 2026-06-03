@@ -13,7 +13,7 @@ export const settings = {
     passwordDescription: "Mettez à jour le mot de passe de votre compte",
     appearanceTitle: "Apparence",
     appearanceDescription:
-      "Choisissez l'apparence d'Axiom. Paramètres stockés localement.",
+      "Choisissez l'apparence de Kanban. Paramètres stockés localement.",
     themes: {
       light: "Clair",
       lightDescription: "Interface propre et lumineuse",

@@ -6,7 +6,7 @@ import { defineConfig } from "vitest/config"
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // Runs on 5174 so it can coexist with the axiom frontend on 5173.
+  // Runs on 5174 so it can coexist with the kanban frontend on 5173.
   server: {
     port: 5174,
   },
