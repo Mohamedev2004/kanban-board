@@ -29,8 +29,8 @@ export const notifications = {
     topics: {
       "user.registered":      "مستخدم جديد مسجل",
       "user.registered.body": "{email} سجل حسابًا جديدًا.",
-      "user.welcome":         "مرحبًا بك في Axiom!",
-      "user.welcome.body":    "مرحبًا {username}, مرحبًا بك في Axiom!",
+      "user.welcome":         "مرحبًا بك في كانبان!",
+      "user.welcome.body":    "مرحبًا {username}, مرحبًا بك في كانبان!",
     },
     errors: {
       invalidPage: "رقم الصفحة غير صالح.",

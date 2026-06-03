@@ -30,8 +30,8 @@ export const notifications = {
     topics: {
       "user.registered":      "Nouvel utilisateur enregistré",
       "user.registered.body": "{email} vient de créer un compte.",
-      "user.welcome":         "Bienvenue sur Axiom !",
-      "user.welcome.body":    "Bonjour {username}, bienvenue sur Axiom !",
+      "user.welcome":         "Bienvenue sur Kanban !",
+      "user.welcome.body":    "Bonjour {username}, bienvenue sur Kanban !",
     },
     errors: {
       invalidPage: "Le numero de page est invalide.",

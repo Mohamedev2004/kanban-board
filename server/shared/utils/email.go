@@ -21,7 +21,7 @@ func SendResetPasswordEmail(to, username string, token string) error {
 		Year      int
 		ResetLink string
 	}{
-		AppName:   "Axiom",
+		AppName:   "Kanban",
 		Username:  username,
 		Year:      time.Now().Year(),
 		ResetLink: resetLink,
@@ -68,7 +68,7 @@ func SendWelcomeEmail(to, username string) error {
 		return fmt.Errorf("failed to execute template: %w", err)
 	}
 
-	subject := "Welcome to Axiom!"
+	subject := "Welcome to Kanban!"
 	return SendEmail(to, subject, body.String())
 }
 

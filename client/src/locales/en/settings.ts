@@ -11,7 +11,7 @@ export const settings = {
     passwordDescription: "Update your account password",
     appearanceTitle: "Appearance",
     appearanceDescription:
-      "Choose how Axiom looks for you. Stored locally in your browser.",
+      "Choose how Kanban looks for you. Stored locally in your browser.",
     themes: {
       light: "Light",
       lightDescription: "Clean and bright interface",

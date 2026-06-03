@@ -2,8 +2,8 @@ export const shell = {
   shell: {
     platform: "المنصة",
     settings: "الإعدادات",
-    appName: "اكسيوم",
-    appDashboardName: "لوحة تحكم أكسيوم",
+    appName: "كانبان",
+    appDashboardName: "لوحة تحكم كانبان",
     adminPanel: "لوحة الإدارة",
     search: "ابحث...",
     searchPages: "البحث في الصفحات",

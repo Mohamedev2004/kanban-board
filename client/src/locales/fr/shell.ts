@@ -2,8 +2,8 @@ export const shell = {
   shell: {
     platform: "Plateforme",
     settings: "Paramètres",
-    appName: "Axiome",
-    appDashboardName: "Axiome Back Office",
+    appName: "Kanban",
+    appDashboardName: "Kanban Back Office",
     adminPanel: "Panneau d'administration",
     search: "Rechercher…",
     searchPages: "Rechercher des pages",

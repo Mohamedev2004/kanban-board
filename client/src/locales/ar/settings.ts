@@ -11,7 +11,7 @@ export const settings = {
     passwordDescription: "حدّث كلمة مرور حسابك",
     appearanceTitle: "المظهر",
     appearanceDescription:
-      "اختر كيف يبدو أكسيوم بالنسبة لك. يتم حفظ الإعدادات محلياً في متصفحك.",
+      "اختر كيف يبدو كانبان بالنسبة لك. يتم حفظ الإعدادات محلياً في متصفحك.",
     themes: {
       light: "فاتح",
       lightDescription: "واجهة نظيفة ومشرقة",

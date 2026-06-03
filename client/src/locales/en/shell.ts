@@ -2,8 +2,8 @@ export const shell = {
   shell: {
     platform: "Platform",
     settings: "Settings",
-    appName: "Axiom",
-    appDashboardName: "Axiom Back Office",
+    appName: "Kanban",
+    appDashboardName: "Kanban Back Office",
     adminPanel: "Admin Panel",
     search: "Search...",
     searchPages: "Search Pages",
