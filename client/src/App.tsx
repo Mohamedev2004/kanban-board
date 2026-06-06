@@ -33,6 +33,7 @@ const UserKanban = lazy(() => import("./pages/user/kanban"))
 
 // Shared
 const NotificationsPage = lazy(() => import("./pages/notifications"))
+const TasksPage = lazy(() => import("./pages/tasks"))
 const RoleDashboard = lazy(() => import("./pages/role-dashboard"))
 
 export function App() {
@@ -62,6 +63,26 @@ export function App() {
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/logs" element={<AdminLogs />} />
             <Route
+              path="/admin/tasks"
+              element={
+                <TasksPage
+                  dashboardHref="/admin/dashboard"
+                  breadcrumbTaglineKey="roles.overview"
+                  breadcrumbLabelKey="roles.tasks"
+                />
+              }
+            />
+            <Route
+              path="/admin/kanban"
+              element={
+                <UserKanban
+                  dashboardHref="/admin/dashboard"
+                  breadcrumbTaglineKey="roles.overview"
+                  breadcrumbLabelKey="roles.kanban"
+                />
+              }
+            />
+            <Route
               path="/admin/notifications"
               element={
                 <NotificationsPage
@@ -77,6 +98,16 @@ export function App() {
           <Route element={<UserRoute />}>
             <Route path="/user/dashboard" element={<UserDashboard />} />
             <Route path="/user/kanban" element={<UserKanban />} />
+            <Route
+              path="/user/tasks"
+              element={
+                <TasksPage
+                  dashboardHref="/user/dashboard"
+                  breadcrumbTaglineKey="roles.overview"
+                  breadcrumbLabelKey="roles.tasks"
+                />
+              }
+            />
             <Route
               path="/user/notifications"
               element={

@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { User } from "@/api/types/auth.types"
 import type { RolePageGroup } from "@/types/navigation.types"
-import { ChartBar, BellRing, History, KanbanSquare } from "lucide-react"
+import {
+  ChartBar,
+  BellRing,
+  History,
+  KanbanSquare,
+  ListChecks,
+} from "lucide-react"
 
 /**
  * Navigation utility functions.
@@ -41,6 +47,16 @@ export function getRolePages(
             url: "/admin/dashboard",
             icon: ChartBar,
           },
+          {
+            title: t("roles.tasks"),
+            url: "/admin/tasks",
+            icon: ListChecks,
+          },
+          {
+            title: t("roles.kanban"),
+            url: "/admin/kanban",
+            icon: KanbanSquare,
+          },
         ],
       },
       {
@@ -70,6 +86,11 @@ export function getRolePages(
           title: t("roles.dashboard"),
           url: "/user/dashboard",
           icon: ChartBar,
+        },
+        {
+          title: t("roles.tasks"),
+          url: "/user/tasks",
+          icon: ListChecks,
         },
         {
           title: t("roles.kanban"),

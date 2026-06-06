@@ -6,6 +6,8 @@ import { system } from './system'
 import { notifications } from './notifications'
 import { logs } from './logs'
 import { roles } from './roles'
+import { tasks } from './tasks'
+import { dashboard } from './dashboard'
 
 export const ar = {
   ...shell,
@@ -16,4 +18,6 @@ export const ar = {
   ...notifications,
   ...logs,
   ...roles,
+  ...tasks,
+  ...dashboard,
 } as const

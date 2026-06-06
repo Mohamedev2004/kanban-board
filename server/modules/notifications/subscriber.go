@@ -1,9 +1,9 @@
 package notifications
 
 import (
-	"server/shared/types"
 	"encoding/json"
 	"log"
+	"server/shared/types"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 )

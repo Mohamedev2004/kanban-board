@@ -5,6 +5,7 @@ import (
 
 	"server/modules/auth"
 	"server/modules/notifications"
+	"server/modules/tasks"
 	"server/shared/utils"
 
 	"gorm.io/gorm"
@@ -37,6 +38,11 @@ func SeedDev(db *gorm.DB) {
 		log.Fatalf("failed to seed notifications: %v", err)
 	}
 
+	log.Println("→ Seeding tasks...")
+	if err := tasks.SeedTasks(db, 12); err != nil {
+		log.Fatalf("failed to seed tasks: %v", err)
+	}
+
 	log.Println("")
 	log.Println("✓ Dev seed complete.")
 	log.Println("")
@@ -44,8 +50,6 @@ func SeedDev(db *gorm.DB) {
 	log.Println("  Admin:  admin@app.com / Admin2025!")
 	log.Println("  Users:  alice@app.com, bob@app.com, carol@app.com / User2025!")
 }
-
-
 
 func devSeedRoles(db *gorm.DB) map[string]auth.Role {
 	names := []string{auth.RoleAdmin, auth.RoleUser}

@@ -12,10 +12,10 @@ var AllowedPerPage = map[int]struct{}{
 }
 
 type Facets struct {
-	Levels    []string `json:"levels"`
-	Statuses  []string `json:"statuses"`
-	Durations []string `json:"durations"`
-	StatusCodes []int  `json:"status_codes"`
+	Levels      []string `json:"levels"`
+	Statuses    []string `json:"statuses"`
+	Durations   []string `json:"durations"`
+	StatusCodes []int    `json:"status_codes"`
 }
 
 type ListParams struct {
@@ -23,13 +23,13 @@ type ListParams struct {
 	PerPage int
 
 	// Filters
-	Query     string
-	Levels    []string
-	Statuses  []string
+	Query       string
+	Levels      []string
+	Statuses    []string
 	StatusCodes []int
-	Durations []string
-	From      *time.Time
-	To        *time.Time
+	Durations   []string
+	From        *time.Time
+	To          *time.Time
 }
 
 type PaginationMeta struct {
@@ -42,14 +42,14 @@ type PaginationMeta struct {
 }
 
 type LogItem struct {
-	ID        string `json:"id"`
-	Timestamp string `json:"timestamp"`
-	Level     string `json:"level"`
-	Service   string `json:"service"`
-	Message   string `json:"message"`
-	Duration  string `json:"duration"`
-	Status    string `json:"status"`
-	StatusCode int   `json:"status_code"`
+	ID         string `json:"id"`
+	Timestamp  string `json:"timestamp"`
+	Level      string `json:"level"`
+	Service    string `json:"service"`
+	Message    string `json:"message"`
+	Duration   string `json:"duration"`
+	Status     string `json:"status"`
+	StatusCode int    `json:"status_code"`
 	// Details for the expanded view (optional usage by UI)
 	RequestID string      `json:"request_id,omitempty"`
 	ActorID   string      `json:"actor_id,omitempty"`

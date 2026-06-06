@@ -1,10 +1,10 @@
 package delivery
 
 import (
-	"server/shared/types"
-	"server/shared/utils"
 	"context"
 	"log"
+	"server/shared/types"
+	"server/shared/utils"
 )
 
 type emailDispatcher struct{}

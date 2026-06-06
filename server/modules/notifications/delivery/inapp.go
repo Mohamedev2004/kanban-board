@@ -1,9 +1,9 @@
 package delivery
 
 import (
-	"server/shared/types"
 	"context"
 	"encoding/json"
+	"server/shared/types"
 
 	"gorm.io/datatypes"
 	"gorm.io/gorm"

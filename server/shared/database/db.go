@@ -1,10 +1,10 @@
 package database
 
 import (
-	"server/config"
 	"database/sql"
 	"fmt"
 	"log"
+	"server/config"
 	"strings"
 
 	_ "github.com/jackc/pgx/v5/stdlib" // Standard Postgres SQL driver for DB creation

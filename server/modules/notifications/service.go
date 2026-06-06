@@ -1,14 +1,14 @@
 package notifications
 
 import (
-	"server/modules/notifications/delivery"
-	"server/shared/types"
 	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"math"
 	"net/http"
+	"server/modules/notifications/delivery"
+	"server/shared/types"
 	"time"
 
 	"github.com/ThreeDotsLabs/watermill"

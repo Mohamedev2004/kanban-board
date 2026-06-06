@@ -1,14 +1,14 @@
 package main
 
 import (
+	"context"
+	"log"
+	"reflect"
 	"server/config"
 	"server/routes"
 	"server/schedules"
 	"server/setup"
 	"server/shared/database"
-	"context"
-	"log"
-	"reflect"
 	"strings"
 
 	"github.com/ThreeDotsLabs/watermill"
@@ -39,7 +39,7 @@ func main() {
 	database.Migrate()
 
 	pubSub := setup.EventBus()
-	schedules.StartAll(database.MainDB)
+	schedules.StartAll(database.MainDB, pubSub)
 
 	// Build the Watermill router
 	watermillRouter, err := message.NewRouter(message.RouterConfig{}, watermill.NewStdLogger(false, false))
