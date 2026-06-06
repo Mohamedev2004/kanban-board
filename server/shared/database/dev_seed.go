@@ -51,8 +51,6 @@ func SeedDev(db *gorm.DB) {
 	log.Println("  Users:  alice@app.com, bob@app.com, carol@app.com / User2025!")
 }
 
-
-
 func devSeedRoles(db *gorm.DB) map[string]auth.Role {
 	names := []string{auth.RoleAdmin, auth.RoleUser}
 	out := make(map[string]auth.Role, len(names))

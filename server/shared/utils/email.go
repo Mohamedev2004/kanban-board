@@ -1,13 +1,13 @@
 package utils
 
 import (
-	"server/config"
 	"bytes"
 	"fmt"
 	"html/template"
 	"log"
 	"net/smtp"
 	"path/filepath"
+	"server/config"
 	"time"
 )
 

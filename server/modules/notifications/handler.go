@@ -1,8 +1,8 @@
 package notifications
 
 import (
-	"server/shared/utils"
 	"net/http"
+	"server/shared/utils"
 	"strconv"
 
 	"github.com/gin-gonic/gin"

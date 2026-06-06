@@ -1,11 +1,11 @@
 package setup
 
 import (
-	"server/shared/types"
-	"server/shared/utils"
 	"encoding/json"
 	"errors"
 	"log"
+	"server/shared/types"
+	"server/shared/utils"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/pubsub/gochannel"

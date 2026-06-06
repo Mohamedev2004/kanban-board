@@ -1,11 +1,11 @@
 package main
 
 import (
-	"server/config"
-	"server/shared/database"
 	"database/sql"
 	"fmt"
 	"log"
+	"server/config"
+	"server/shared/database"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 )

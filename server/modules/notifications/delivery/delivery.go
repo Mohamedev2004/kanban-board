@@ -1,8 +1,8 @@
 package delivery
 
 import (
-	"server/shared/types"
 	"context"
+	"server/shared/types"
 )
 
 type Dispatcher interface {

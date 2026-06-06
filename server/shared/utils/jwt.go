@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"server/config"
 	"errors"
+	"server/config"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -10,9 +10,9 @@ import (
 )
 
 type Claims struct {
-	UserID    uint   `json:"user_id"`
+	UserID    uint     `json:"user_id"`
 	Roles     []string `json:"roles"`
-	TokenType string `json:"token_type"`
+	TokenType string   `json:"token_type"`
 	jwt.RegisteredClaims
 }
 
