@@ -5,9 +5,10 @@ columns (To Do / In Progress / Done) — built on top of a production-style
 platform foundation: authentication, role-based dashboards, in-app + email
 notifications, audit logging, and full internationalization.
 
-> **Status:** The platform (auth, roles, notifications, logs, i18n, theming) is
-> implemented. The Kanban board view itself is currently a UI scaffold — three
-> columns are rendered but the cards/data are not wired up yet.
+> **Status:** Fully implemented — the platform (auth, roles, notifications,
+> audit logs, i18n, theming) **plus** the Tasks module: a drag-and-drop Kanban
+> board, a server-driven data table, role-scoped visibility, an automatic
+> system-managed "overdue" status, and analytics dashboards.
 
 The repository is a monorepo with two apps:
 
@@ -24,6 +25,7 @@ The repository is a monorepo with two apps:
 - React 19 + Vite 7 + TypeScript
 - Tailwind CSS v4 + shadcn/ui (Radix UI primitives)
 - TanStack Query (data fetching) & TanStack Table
+- Drag-and-drop Kanban via **@dnd-kit**
 - React Router v7
 - i18n in **English, French, and Arabic** (with full RTL support)
 - Light/dark theming, framer-motion, Recharts, command palette
@@ -47,7 +49,56 @@ The repository is a monorepo with two apps:
 - 📜 **Audit logs** — written to a dedicated logs database, with Excel export
 - 🌍 **Internationalization** — English, French, Arabic (RTL-aware)
 - 🎨 **Theming** — light/dark mode
-- 🗂️ **Kanban board** — column layout scaffolded (work in progress)
+- 🗂️ **Tasks & Kanban** — drag-and-drop board + server-driven data table; tasks have title, description, tags, status, priority, type (bug/ticket/epic) and due date
+- ⏰ **Auto-overdue** — a daily background job flags past-due tasks as `overdue` (a locked, system-managed column)
+- 📊 **Analytics dashboards** — KPI cards + Recharts charts (status/priority/type breakdowns, created-over-time, per-user) for users and admins
+
+---
+
+## Tasks & Kanban
+
+The Tasks module is the core feature. A **task** has: `id`, `user_id` (owner),
+`title`, `description`, `tags` (string array), `status`, `priority`
+(`low`/`medium`/`high`), `type` (`bug`/`ticket`/`epic`), and `due_date`.
+
+**Two views, one dataset:**
+- **Kanban board** — four columns (To Do → In Progress → Done → Overdue) with
+  drag-and-drop between columns (optimistic update, rolled back on error).
+- **Data table** — server-driven search, filtering (status/priority/type),
+  column sorting, and pagination.
+
+**Role-scoped visibility:** regular users see and manage only their own tasks;
+admins see **all** tasks and get an extra **Owner** column on the table plus an
+owner badge on each Kanban card.
+
+**Overdue is system-managed:** the `overdue` status is never set by hand. A
+background job (runs on startup, then every 24h) flips any past-due task that
+isn't done into `overdue`. Overdue tasks are **locked** for everyone — they
+can't be edited, deleted, moved, or dragged in/out (the API returns
+`409 task_overdue_locked` if attempted).
+
+**Dashboards:** both the user and admin dashboards render KPI cards and Recharts
+charts driven by `GET /api/v1/tasks/stats` (role-scoped). Admins additionally
+get a "tasks by user" breakdown.
+
+**Audit trail:** every task mutation (create / update / status change / delete)
+and each overdue sweep publishes an event on the Watermill bus that is written
+to the audit-logs database — the same pipeline as the rest of the app.
+
+### Task API
+
+All routes are under `/api/v1/tasks` and require authentication.
+
+| Method | Path                | Purpose                                  |
+| ------ | ------------------- | ---------------------------------------- |
+| GET    | `/tasks`            | Paginated list (filter / search / sort)  |
+| GET    | `/tasks/board`      | All in-scope tasks, for the Kanban board |
+| GET    | `/tasks/stats`      | Dashboard KPIs + chart data              |
+| POST   | `/tasks`            | Create a task                            |
+| GET    | `/tasks/:id`        | Fetch one task                           |
+| PUT    | `/tasks/:id`        | Update a task                            |
+| PATCH  | `/tasks/:id/status` | Change status (used by drag-and-drop)    |
+| DELETE | `/tasks/:id`        | Delete a task                            |
 
 ---
 
@@ -181,10 +232,44 @@ npm test
 
 ---
 
+## Database Seeding
+
+Two seed entrypoints populate the databases with demo data so you can log in
+and see a populated board immediately.
+
+| Command                | What it does                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| `go run ./cmd/seed`    | Connects, migrates, and seeds **idempotently** — safe to re-run; only fills in what's missing. |
+| `go run ./cmd/devseed` | **Destructive reset:** drops both databases, recreates, migrates, then seeds fresh dev data. ⚠️ |
+
+**What gets seeded**
+
+- **Roles:** `admin` and `user`.
+- **Accounts:**
+  - `cmd/seed` → `admin@app.com` / `Admin2025!` and `user@app.com` / `User2025!`
+  - `cmd/devseed` → the admin above plus demo users `alice`, `bob`, `carol`
+    (`<name>@app.com` / `User2025!`)
+- **Notifications:** a batch of demo in-app notifications per user.
+- **Tasks:** ~12 demo tasks per user with randomized status, priority, type,
+  tags, and due dates. Seeding is **idempotent** — users who already own tasks
+  are skipped.
+
+> **Overdue tasks:** the seeder only assigns `todo` / `in_progress` / `done`.
+> Once the API server starts, the overdue background job marks any seeded task
+> whose `due_date` is already in the past as `overdue` — so the Overdue column
+> fills in shortly after launch.
+
+---
+
 ## Continuous Integration
 
 GitHub Actions (`.github/workflows/ci.yml`) runs on every push and pull request
-to `main`. Two jobs run in parallel with dependency caching:
+to `main` (and can be triggered manually via `workflow_dispatch`). In-progress
+runs for the same ref are auto-cancelled, the workflow token runs with
+least-privilege (`contents: read`), and both jobs cache their dependencies and
+run in parallel:
 
-- **Backend (Go):** `go test ./...`
-- **Frontend (React):** `npm ci && npm test`
+- **Backend (Go):** `gofmt` formatting check → `go vet` → `go build ./...` →
+  `go test ./...`
+- **Frontend (React):** `npm ci` → `npm run lint` (ESLint) → `npm run typecheck`
+  (tsc) → `npm run build` → `npm test` (Vitest)

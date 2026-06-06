@@ -6,6 +6,7 @@ import (
 	"server/modules/logs"
 	"server/modules/notifications"
 	"server/modules/notifications/delivery"
+	"server/modules/tasks"
 	"server/shared/database"
 	"server/shared/middleware"
 
@@ -44,6 +45,12 @@ func Register(r *gin.Engine, db *gorm.DB, publisher message.Publisher) {
 	notifService := notifications.NewService(notifRepo, userResolver, dispatchers, publisher)
 	notifHandler := notifications.NewHandler(notifService)
 	notifications.RegisterRoutes(v1, db, notifHandler)
+
+	// Tasks (HTTP only) — admins manage all tasks; users manage only their own.
+	taskRepo := tasks.NewRepository(db)
+	taskService := tasks.NewService(taskRepo, publisher)
+	taskHandler := tasks.NewHandler(taskService)
+	tasks.RegisterRoutes(v1, db, taskHandler)
 
 	// Logs (HTTP only) — admin-only system audit trail. Reads from LogsDB,
 	// auth is validated against MainDB.

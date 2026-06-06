@@ -11,6 +11,7 @@ export const roles = {
     // Pages
     dashboard: "لوحة التحكم",
     kanban: "كانبان",
+    tasks: "المهام",
     logs: "سجلات النشاط",
     notifications: "الإشعارات",
     settings: "الإعدادات",

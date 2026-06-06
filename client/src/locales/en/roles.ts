@@ -11,6 +11,7 @@ export const roles = {
     // Pages
     dashboard: "Dashboard",
     kanban: "Kanban",
+    tasks: "Tasks",
     logs: "Activity Logs",
     notifications: "Notifications",
     settings: "Settings",

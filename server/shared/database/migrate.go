@@ -6,6 +6,7 @@ import (
 	"server/modules/auth"
 	"server/modules/logs"
 	"server/modules/notifications"
+	"server/modules/tasks"
 )
 
 func Migrate() {
@@ -16,6 +17,7 @@ func Migrate() {
 		&auth.Role{},
 		&auth.UserRole{},
 		&notifications.Notification{},
+		&tasks.Task{},
 	); err != nil {
 		log.Fatal("Main DB Migration failed:", err)
 	}

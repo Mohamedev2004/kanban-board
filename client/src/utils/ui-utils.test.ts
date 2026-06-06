@@ -10,6 +10,8 @@ describe("cn", () => {
   })
 
   it("ignores falsy conditional values", () => {
-    expect(cn("base", false && "hidden", true && "block")).toBe("base block")
+    const hidden = false
+    const block = true
+    expect(cn("base", hidden && "hidden", block && "block")).toBe("base block")
   })
 })

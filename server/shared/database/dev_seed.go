@@ -5,6 +5,7 @@ import (
 
 	"server/modules/auth"
 	"server/modules/notifications"
+	"server/modules/tasks"
 	"server/shared/utils"
 
 	"gorm.io/gorm"
@@ -35,6 +36,11 @@ func SeedDev(db *gorm.DB) {
 	log.Println("→ Seeding notifications...")
 	if err := notifications.SeedNotifications(db, 30); err != nil {
 		log.Fatalf("failed to seed notifications: %v", err)
+	}
+
+	log.Println("→ Seeding tasks...")
+	if err := tasks.SeedTasks(db, 12); err != nil {
+		log.Fatalf("failed to seed tasks: %v", err)
 	}
 
 	log.Println("")
