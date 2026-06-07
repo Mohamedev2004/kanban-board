@@ -2,7 +2,7 @@ package utils
 
 import (
 	"errors"
-	"server/config"
+	"kanban/config"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"

@@ -3,10 +3,10 @@ package database
 import (
 	"log"
 
-	"server/modules/auth"
-	"server/modules/logs"
-	"server/modules/notifications"
-	"server/modules/tasks"
+	"kanban/modules/auth"
+	"kanban/modules/logs"
+	"kanban/modules/notifications"
+	"kanban/modules/tasks"
 )
 
 func Migrate() {

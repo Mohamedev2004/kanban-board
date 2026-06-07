@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"time"
 
-	"server/shared/types"
+	"kanban/shared/types"
 
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"

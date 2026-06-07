@@ -2,9 +2,9 @@ package logs
 
 import (
 	"fmt"
+	"kanban/shared/utils"
 	"log"
 	"net/http"
-	"server/shared/utils"
 	"strconv"
 	"strings"
 	"time"

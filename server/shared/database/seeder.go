@@ -1,9 +1,9 @@
 package database
 
 import (
-	"server/modules/auth"
-	"server/modules/notifications"
-	"server/modules/tasks"
+	"kanban/modules/auth"
+	"kanban/modules/notifications"
+	"kanban/modules/tasks"
 
 	"gorm.io/gorm"
 )

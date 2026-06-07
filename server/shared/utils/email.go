@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"kanban/config"
 	"log"
 	"net/smtp"
 	"path/filepath"
-	"server/config"
 	"time"
 )
 

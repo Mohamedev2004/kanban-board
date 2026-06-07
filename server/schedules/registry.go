@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"server/modules/auth"
-	"server/modules/notifications"
-	"server/modules/tasks"
+	"kanban/modules/auth"
+	"kanban/modules/notifications"
+	"kanban/modules/tasks"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"gorm.io/gorm"

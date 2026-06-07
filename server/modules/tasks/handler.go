@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"server/modules/auth"
-	"server/shared/utils"
+	"kanban/modules/auth"
+	"kanban/shared/utils"
 
 	"github.com/gin-gonic/gin"
 )

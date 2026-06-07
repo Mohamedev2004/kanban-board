@@ -3,9 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"kanban/config"
+	"kanban/shared/database"
 	"log"
-	"server/config"
-	"server/shared/database"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 )

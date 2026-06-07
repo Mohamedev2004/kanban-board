@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
+	"kanban/config"
+	"kanban/routes"
+	"kanban/schedules"
+	"kanban/setup"
+	"kanban/shared/database"
 	"log"
 	"reflect"
-	"server/config"
-	"server/routes"
-	"server/schedules"
-	"server/setup"
-	"server/shared/database"
 	"strings"
 
 	"github.com/ThreeDotsLabs/watermill"

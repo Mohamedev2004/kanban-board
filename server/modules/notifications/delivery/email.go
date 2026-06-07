@@ -2,9 +2,9 @@ package delivery
 
 import (
 	"context"
+	"kanban/shared/types"
+	"kanban/shared/utils"
 	"log"
-	"server/shared/types"
-	"server/shared/utils"
 )
 
 type emailDispatcher struct{}

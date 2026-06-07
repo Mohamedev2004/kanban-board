@@ -3,7 +3,7 @@ package delivery
 import (
 	"context"
 	"encoding/json"
-	"server/shared/types"
+	"kanban/shared/types"
 
 	"gorm.io/datatypes"
 	"gorm.io/gorm"

@@ -3,7 +3,7 @@ package auth
 import (
 	"errors"
 
-	"server/shared/utils"
+	"kanban/shared/utils"
 
 	"gorm.io/gorm"
 )
