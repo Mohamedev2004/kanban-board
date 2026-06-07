@@ -22,6 +22,12 @@ build/
 *.out
 server/bin/
 
+# Go build cache (regenerated on every build — never commit)
+.gocache/
+
+# Docker (local-only compose override — see docs/docker/)
+docker-compose.override.yml
+
 # Logs
 *.log
 npm-debug.log*
