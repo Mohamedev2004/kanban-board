@@ -1,7 +1,7 @@
 package tasks
 
 import (
-	"server/modules/auth"
+	"kanban/modules/auth"
 
 	"gorm.io/gorm"
 )

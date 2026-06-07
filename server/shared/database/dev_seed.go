@@ -3,10 +3,10 @@ package database
 import (
 	"log"
 
-	"server/modules/auth"
-	"server/modules/notifications"
-	"server/modules/tasks"
-	"server/shared/utils"
+	"kanban/modules/auth"
+	"kanban/modules/notifications"
+	"kanban/modules/tasks"
+	"kanban/shared/utils"
 
 	"gorm.io/gorm"
 )

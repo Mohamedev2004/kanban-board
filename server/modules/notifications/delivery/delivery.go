@@ -2,7 +2,7 @@ package delivery
 
 import (
 	"context"
-	"server/shared/types"
+	"kanban/shared/types"
 )
 
 type Dispatcher interface {

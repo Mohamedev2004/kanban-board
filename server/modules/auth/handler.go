@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"server/config"
-	"server/shared/utils"
+	"kanban/config"
+	"kanban/shared/utils"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/gin-gonic/gin"

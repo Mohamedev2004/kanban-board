@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"server/shared/utils"
+	"kanban/shared/utils"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

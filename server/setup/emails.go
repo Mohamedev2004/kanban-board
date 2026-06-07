@@ -3,9 +3,9 @@ package setup
 import (
 	"encoding/json"
 	"errors"
+	"kanban/shared/types"
+	"kanban/shared/utils"
 	"log"
-	"server/shared/types"
-	"server/shared/utils"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/pubsub/gochannel"

@@ -3,8 +3,8 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"kanban/config"
 	"log"
-	"server/config"
 	"strings"
 
 	_ "github.com/jackc/pgx/v5/stdlib" // Standard Postgres SQL driver for DB creation

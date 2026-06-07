@@ -2,8 +2,8 @@ package notifications
 
 import (
 	"encoding/json"
+	"kanban/shared/types"
 	"log"
-	"server/shared/types"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 )

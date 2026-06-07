@@ -10,8 +10,8 @@ import (
 	"net/http"
 	"time"
 
-	"server/shared/types"
-	"server/shared/utils"
+	"kanban/shared/types"
+	"kanban/shared/utils"
 
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"

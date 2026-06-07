@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"server/shared/middleware"
+	"kanban/shared/middleware"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/gin-gonic/gin"

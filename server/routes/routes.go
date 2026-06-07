@@ -1,14 +1,14 @@
 package routes
 
 import (
-	"server/config"
-	"server/modules/auth"
-	"server/modules/logs"
-	"server/modules/notifications"
-	"server/modules/notifications/delivery"
-	"server/modules/tasks"
-	"server/shared/database"
-	"server/shared/middleware"
+	"kanban/config"
+	"kanban/modules/auth"
+	"kanban/modules/logs"
+	"kanban/modules/notifications"
+	"kanban/modules/notifications/delivery"
+	"kanban/modules/tasks"
+	"kanban/shared/database"
+	"kanban/shared/middleware"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/gin-gonic/gin"
@@ -25,6 +25,13 @@ func Register(r *gin.Engine, db *gorm.DB, publisher message.Publisher) {
 	r.Use(middleware.RateLimiterMiddleware(rate.Limit(5), 10, publisher))
 	r.Use(middleware.RequestIDMiddleware())
 	r.Use(middleware.RequestTimingMiddleware())
+
+	// ==========================================
+	// HEALTH CHECK (for Docker/K8s)
+	// ==========================================
+	r.GET("/health", func(c *gin.Context) {
+		c.JSON(200, gin.H{"status": "ok"})
+	})
 
 	// ==========================================
 	// API ROUTES

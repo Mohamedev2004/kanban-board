@@ -1,7 +1,7 @@
 package notifications
 
 import (
-	"server/modules/auth"
+	"kanban/modules/auth"
 
 	"gorm.io/gorm"
 )

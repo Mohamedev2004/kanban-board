@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"server/shared/utils"
+	"kanban/shared/utils"
 
 	"github.com/gin-gonic/gin"
 )

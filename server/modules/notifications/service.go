@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"kanban/modules/notifications/delivery"
+	"kanban/shared/types"
 	"log"
 	"math"
 	"net/http"
-	"server/modules/notifications/delivery"
-	"server/shared/types"
 	"time"
 
 	"github.com/ThreeDotsLabs/watermill"

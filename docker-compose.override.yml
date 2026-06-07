@@ -1,0 +1,31 @@
+# docker-compose.override.yml
+# Surcharge automatiquement le docker-compose.yml en DÉVELOPPEMENT LOCAL
+# ⚠️ À AJOUTER À .gitignore (déjà fait)
+# 
+# Ce fichier permet:
+# - Monter le code source pour développement
+# - Logs verbeux
+# - Mode debug activé
+
+version: '3.9'
+
+services:
+  backend:
+    # Monter le code source Go pour développement
+    volumes:
+      - ./server:/workspace
+    environment:
+      DEBUG_MODE: "true"
+      LOG_LEVEL: debug
+  # Remarque: Le binaire doit être ricompilé quand ce volume est activé
+  # Utilisez: docker compose restart backend (après modification Go)
+
+  frontend:
+    # Mode développement Vite avec hot-reload
+    environment:
+      - VITE_MODE=development
+
+  postgres:
+    # Logs plus verbeux en développement
+    environment:
+      POSTGRES_INITDB_ARGS: "-c log_statement=mod"

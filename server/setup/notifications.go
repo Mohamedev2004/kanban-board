@@ -1,11 +1,11 @@
 package setup
 
 import (
-	"server/modules/auth"
-	"server/modules/notifications"
-	"server/modules/notifications/delivery"
-	"server/shared/database"
-	"server/shared/types"
+	"kanban/modules/auth"
+	"kanban/modules/notifications"
+	"kanban/modules/notifications/delivery"
+	"kanban/shared/database"
+	"kanban/shared/types"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 	"github.com/ThreeDotsLabs/watermill/pubsub/gochannel"

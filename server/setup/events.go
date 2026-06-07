@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"server/modules/logs"
-	"server/shared/database"
+	"kanban/modules/logs"
+	"kanban/shared/database"
 
 	"github.com/ThreeDotsLabs/watermill"
 	"github.com/ThreeDotsLabs/watermill/message"

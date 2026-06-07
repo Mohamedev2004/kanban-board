@@ -1,8 +1,8 @@
 package main
 
 import (
-	"server/config"
-	"server/shared/database"
+	"kanban/config"
+	"kanban/shared/database"
 )
 
 func main() {

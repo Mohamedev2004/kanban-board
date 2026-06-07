@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"server/shared/types" // Adjust to your actual module name
+	"kanban/shared/types"
 
 	"github.com/ThreeDotsLabs/watermill/message"
 )

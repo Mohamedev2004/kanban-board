@@ -1,7 +1,7 @@
 package notifications
 
 import (
-	"server/shared/middleware"
+	"kanban/shared/middleware"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
